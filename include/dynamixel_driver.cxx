@@ -28,8 +28,8 @@ DynamixelDriver::~DynamixelDriver()
     {
       writeRegister(tools_[i].dxl_info_[j].id, "Torque_Enable", false);
     }
-  }
-
+  } 
+  printf("Closed");
   portHandler_->closePort();
 }
 
