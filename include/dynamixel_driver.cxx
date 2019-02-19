@@ -28,8 +28,8 @@ DynamixelDriver::~DynamixelDriver()
     {
       writeRegister(tools_[i].dxl_info_[j].id, "Torque_Enable", false);
     }
-  } 
-  printf("Closed");
+  }
+  printf("Port Closed\n");
   portHandler_->closePort();
 }
 
@@ -241,7 +241,7 @@ bool DynamixelDriver::ping(uint8_t id, uint16_t *get_model_number)
   else
   {
     return false;
-  } 
+  }
 
   *get_model_number = model_number;
   if (setPacketHandler(protocol_version) == false)
@@ -356,7 +356,7 @@ bool DynamixelDriver::reset(uint8_t id)
     if (comm_result == COMM_SUCCESS)
     {
       if (error != 0)
-      {   
+      {
         return false;
       }
 
@@ -802,7 +802,7 @@ void DynamixelDriver::addSyncRead(const char *item_name)
   cti = tools_[0].getControlItem(item_name);
 
   syncReadHandler_[sync_read_handler_cnt_].cti = cti;
-  
+
   syncReadHandler_[sync_read_handler_cnt_++].groupSyncRead = new dynamixel::GroupSyncRead(portHandler_,
                                                                                           packetHandler_,
                                                                                           cti->address,
@@ -818,7 +818,7 @@ bool DynamixelDriver::syncRead(const char *item_name, int32_t *data)
   int index = 0;
 
   SyncReadHandler srh;
-  
+
   for (int index = 0; index < sync_read_handler_cnt_; index++)
   {
     if (!strncmp(syncReadHandler_[index].cti->item_name, item_name, strlen(item_name)))
