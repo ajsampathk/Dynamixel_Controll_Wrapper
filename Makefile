@@ -15,7 +15,9 @@ BIN = ./bin/
 
 
 main: $(SRC)main.cpp
-	$(LNKCC) -std=$(STD) $(LNKFLAGS) $(SRC)main.cpp -o $(BIN)main $(LIBRARIES)
-
+	$(info [INFO]Compiling main...)
+	@$(LNKCC) -std=$(STD) $(LNKFLAGS) $(SRC)main.cpp -o $(BIN)main $(LIBRARIES)
+	
 test: $(SRC)test.cpp
-	$(LNKCC) -std=$(STD) $(LNKFLAGS) $(SRC)test.cpp -o $(BIN)test $(LIBRARIES)
+	$(info [INFO]Compiling test..)
+	@$(LNKCC) -std=$(STD) $(LNKFLAGS) $(SRC)test.cpp -o $(BIN)test $(LIBRARIES)
