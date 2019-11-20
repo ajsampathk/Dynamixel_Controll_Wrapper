@@ -1,6 +1,8 @@
-#Quadruped with Dynamixel Motors
+###Simple Quadruped Model Tested with Dynamixel Motors
 
-#Dependencies:
+This is a c++ implementation of the Simple Quadruped Model developed with MATLAB
+
+###Dependencies:
 
 -DynamixelSDK
 
